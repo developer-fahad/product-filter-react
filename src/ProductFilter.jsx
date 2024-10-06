@@ -77,7 +77,7 @@ const ProductFilter = () => {
             <ProductCard key={product.id} product={product} />
           ))
         ) : (
-          
+          <p>No products found.</p>
         )}
       </div>
     </div>
