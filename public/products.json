@@ -1,0 +1,107 @@
+[
+  {
+    "id": 1,
+    "name": "Wireless Earbuds",
+    "img": "https://i.ibb.co.com/R4FTfty/pexels-caleboquendo-7772547.jpg",
+    "category": "electronics",
+    "price": 59.99
+  },
+  {
+    "id": 2,
+    "name": "Smartphone",
+    "img": "https://i.ibb.co.com/R4FTfty/pexels-caleboquendo-7772547.jpg",
+    "category": "electronics",
+    "price": 499.99
+  },
+  {
+    "id": 3,
+    "name": "Bluetooth Speaker",
+    "img": "https://i.ibb.co.com/R4FTfty/pexels-caleboquendo-7772547.jpg",
+    "category": "electronics",
+    "price": 79.99
+  },
+  {
+    "id": 4,
+    "name": "Running Shoes",
+    "img": "https://i.ibb.co.com/R4FTfty/pexels-caleboquendo-7772547.jpg",
+    "category": "clothing",
+    "price": 89.99
+  },
+  {
+    "id": 5,
+    "name": "Leather Jacket",
+    "img": "https://i.ibb.co.com/R4FTfty/pexels-caleboquendo-7772547.jpg",
+    "category": "clothing",
+    "price": 199.99
+  },
+  {
+    "id": 6,
+    "name": "Denim Jeans",
+    "img": "https://i.ibb.co.com/R4FTfty/pexels-caleboquendo-7772547.jpg",
+    "category": "clothing",
+    "price": 49.99
+  },
+  {
+    "id": 7,
+    "name": "Sunglasses",
+    "img": "https://i.ibb.co.com/R4FTfty/pexels-caleboquendo-7772547.jpg",
+    "category": "accessories",
+    "price": 29.99
+  },
+  {
+    "id": 8,
+    "name": "Wristwatch",
+    "img": "https://i.ibb.co.com/R4FTfty/pexels-caleboquendo-7772547.jpg",
+    "category": "accessories",
+    "price": 149.99
+  },
+  {
+    "id": 9,
+    "name": "Leather Belt",
+    "img": "https://i.ibb.co.com/R4FTfty/pexels-caleboquendo-7772547.jpg",
+    "category": "accessories",
+    "price": 39.99
+  },
+  {
+    "id": 10,
+    "name": "Coffee Maker",
+    "img": "https://i.ibb.co.com/R4FTfty/pexels-caleboquendo-7772547.jpg",
+    "category": "appliances",
+    "price": 89.99
+  },
+  {
+    "id": 11,
+    "name": "Blender",
+    "img": "https://i.ibb.co.com/R4FTfty/pexels-caleboquendo-7772547.jpg",
+    "category": "appliances",
+    "price": 59.99
+  },
+  {
+    "id": 12,
+    "name": "Vacuum Cleaner",
+    "img": "https://i.ibb.co.com/R4FTfty/pexels-caleboquendo-7772547.jpg",
+    "category": "appliances",
+    "price": 129.99
+  },
+  {
+    "id": 13,
+    "name": "Mountain Bike",
+    "img": "https://i.ibb.co.com/R4FTfty/pexels-caleboquendo-7772547.jpg",
+    "category": "sports",
+    "price": 499.99
+  },
+  {
+    "id": 14,
+    "name": "Tennis Racket",
+    "img": "https://i.ibb.co.com/R4FTfty/pexels-caleboquendo-7772547.jpg",
+    "category": "sports",
+    "price": 79.99
+  },
+  {
+    "id": 15,
+    "name": "Football",
+    "img": "https://i.ibb.co.com/R4FTfty/pexels-caleboquendo-7772547.jpg",
+    "category": "sports",
+    "price": 29.99
+  }
+]

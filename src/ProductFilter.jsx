@@ -1,66 +1,85 @@
-import React, { useState } from "react";
-
-const products = [
-  { id: 1, name: "Product A", category: "electronics", price: 100 },
-  { id: 2, name: "Product B", category: "clothing", price: 50 },
-  { id: 3, name: "Product C", category: "clothing", price: 70 },
-  { id: 4, name: "Product D", category: "electronics", price: 200 },
-];
+import React, { useEffect, useState } from "react";
+import ProductCard from "./ProductCard";
 
 const ProductFilter = () => {
-  const [category, setCategory] = useState("all");
-  const [priceRange, setPriceRange] = useState([0, 150]);
-  const [filteredProducts, setFilteredProducts] = useState(products);
+  const [products, setProducts] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState("all");
+  const [priceRange, setPriceRange] = useState([0, 500]);
 
+  useEffect(() => {
+    const fetchProducts = async () => {
+      const response = await fetch("/products.json");
+      const data = await response.json();
+      setProducts(data);
+    };
+
+    fetchProducts();
+  }, []);
+
+  // Extract unique categories from products
+  const categories = [
+    "all",
+    ...new Set(products.map((product) => product.category)),
+  ];
+
+  // Function to handle category change
   const handleCategoryChange = (event) => {
-    setCategory(event.target.value);
+    setSelectedCategory(event.target.value);
   };
 
-  const handlePriceChange = (event) => {
-    const [min, max] = event.target.value.split(",").map(Number);
-    setPriceRange([min, max]);
+  // Function to handle price range change
+  const handlePriceRangeChange = (event) => {
+    const value = event.target.value.split(",").map(Number);
+    setPriceRange(value);
   };
 
-  const filterProducts = () => {
-    const filtered = products.filter((product) => {
-      const isCategoryMatch =
-        category === "all" || product.category === category;
-      const isPriceMatch =
-        product.price >= priceRange[0] && product.price <= priceRange[1];
-      return isCategoryMatch && isPriceMatch;
-    });
-    setFilteredProducts(filtered);
-  };
-
-  React.useEffect(() => {
-    filterProducts();
-  }, [category, priceRange]);
+  // Filtered products based on selected category and price range
+  const filteredProducts = products.filter((product) => {
+    const isInCategory =
+      selectedCategory === "all" || product.category === selectedCategory;
+    const isInPriceRange =
+      product.price >= priceRange[0] && product.price <= priceRange[1];
+    return isInCategory && isInPriceRange;
+  });
 
   return (
-    <div>
-      <h1>Product List</h1>
+    <div className="container mx-auto p-4">
+      <h1 className="text-2xl font-bold mb-4">Product List</h1>
 
-      {/* Category Filter */}
-      <select value={category} onChange={handleCategoryChange}>
-        <option value="all">All Categories</option>
-        <option value="electronics">Electronics</option>
-        <option value="clothing">Clothing</option>
-      </select>
+      {/* Filter Section */}
+      <div className="flex mb-4">
+        <select
+          onChange={handleCategoryChange}
+          className="border rounded p-2 mr-2"
+        >
+          {categories.map((category) => (
+            <option key={category} value={category}>
+              {category.charAt(0).toUpperCase() + category.slice(1)}
+            </option>
+          ))}
+        </select>
 
-      {/* Price Filter */}
-      <select onChange={handlePriceChange}>
-        <option value="0,150">Below $150</option>
-        <option value="150,500">Above $150</option>
-      </select>
+        <select
+          onChange={handlePriceRangeChange}
+          className="border rounded p-2"
+        >
+          <option value="0,500">All Prices</option>
+          <option value="0,100">Under $100</option>
+          <option value="100,200">$100 - $200</option>
+          <option value="200,500">$200 - $500</option>
+        </select>
+      </div>
 
-      {/* Product List */}
-      <ul>
-        {filteredProducts.map((product) => (
-          <li key={product.id}>
-            {product.name} - ${product.price}
-          </li>
-        ))}
-      </ul>
+      {/* Display filtered products */}
+      <div className="flex flex-wrap justify-center">
+        {filteredProducts.length > 0 ? (
+          filteredProducts.map((product) => (
+            <ProductCard key={product.id} product={product} />
+          ))
+        ) : (
+          <p>No products found.</p>
+        )}
+      </div>
     </div>
   );
 };
