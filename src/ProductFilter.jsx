@@ -52,7 +52,11 @@ const ProductFilter = () => {
           onChange={handleCategoryChange}
           className="border rounded p-2 mr-2"
         >
-          
+          {categories.map((category) => (
+            <option key={category} value={category}>
+              {category.charAt(0).toUpperCase() + category.slice(1)}
+            </option>
+          ))}
         </select>
 
         <select
@@ -60,7 +64,7 @@ const ProductFilter = () => {
           className="border rounded p-2"
         >
           <option value="0,500">All Prices</option>
-          <option value="0,100">Under $100</option>
+          <option value="0,100">$0 - $100</option>
           <option value="100,200">$100 - $200</option>
           <option value="200,500">$200 - $500</option>
         </select>
