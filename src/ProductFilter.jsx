@@ -43,7 +43,7 @@ const ProductFilter = () => {
   });
 
   return (
-    <div className="container mx-auto p-4">
+    <div className="container mx-auto">
       <h1 className="text-2xl font-bold mb-4">Product List</h1>
 
       {/* Filter Section */}
@@ -52,11 +52,7 @@ const ProductFilter = () => {
           onChange={handleCategoryChange}
           className="border rounded p-2 mr-2"
         >
-          {categories.map((category) => (
-            <option key={category} value={category}>
-              {category.charAt(0).toUpperCase() + category.slice(1)}
-            </option>
-          ))}
+          
         </select>
 
         <select
@@ -71,7 +67,7 @@ const ProductFilter = () => {
       </div>
 
       {/* Display filtered products */}
-      <div className="flex flex-wrap justify-center">
+      <div className="flex flex-wrap">
         {filteredProducts.length > 0 ? (
           filteredProducts.map((product) => (
             <ProductCard key={product.id} product={product} />
